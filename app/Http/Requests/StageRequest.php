@@ -26,11 +26,11 @@ class StageRequest extends FormRequest
         return [
             'nom' => 'required|min:2|max:100|alpha',
             'prenom' => 'required|min:2|max:100|alpha',
-            'poste' => 'required|max:300',
+            'poste' => 'required',
             'email' => 'required|email',
-            'cv' => 'required',
-            'lm' => 'required',
-            'afs' => 'required'
+            'cv' => 'required|mimes:pdf',
+            'lm' => 'required|mimes:pdf',
+            'afs' => 'required|mimes:pdf'
 
         ];
     }

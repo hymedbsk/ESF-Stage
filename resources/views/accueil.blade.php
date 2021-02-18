@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-green fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></a>
+                <a class="navbar-brand js-scroll-trigger" href="{{ url('/#page-top') }}"><img src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
@@ -109,7 +109,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Espace Santé Famille</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -121,7 +121,7 @@
                                 <img class="img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
+                                <div class="portfolio-caption-heading">Santé et Exil</div>
                                 <div class="portfolio-caption-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                 <img class="img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
+                                <div class="portfolio-caption-heading">Formation</div>
                                 <div class="portfolio-caption-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                                 <img class="img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
+                                <div class="portfolio-caption-heading">Médiation familiale et systémique</div>
                                 <div class="portfolio-caption-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</div>
                             </div>
                         </div>
@@ -204,47 +204,50 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">A propos de nous</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4></h4>
+                                <h4 class="subheading">Bienvenue à l&apos;Espace Santé Famille.</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">L’Espace Santé Famille est née d’un constat, celui du besoin grandissant d’un lieu d’accompagnement, d’ancrage et de repère pour les familles et en parallèle de l’importance d’amener davantage de cohérence et d’inclusion dans les interventions professionnelles auprès de ces familles. l’ASBL propose plusieurs projets articulés autour de trois axes: Préventif, Rencontre et Réseau.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4></h4>
+                                <h4 class="subheading">Pourquoi choisir l&apos;Espace Santé Famille ?</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">La spécificité de l’espace santé est d’amener des soins de manière continue, un suivi thérapeutique au sein d’une équipe diversifiée, en offrant un lieu d’ancrage et de référence aux familles en manque de repère, un espace d’écoute, de bien être et de parole pour chacun. En accompagnant le client dans toutes ses démarches psycho-médico-sociales, et lui prodiguant des soins adaptés à sa demande et ses besoins, l’ESF propose un accompagnement de qualité pour tous.</p></div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2012</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4></h4>
+                                <h4 class="subheading">Espace Santé Famille</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Le ROI prévoit en effet, que les soins soient accessibles à tous sans barrière de langue, de culture, de religion. En effet, chaque professionnel est au polyglotte, habitué au public multiculturel. Les us et coutumes de chacun sont respectées. Les langues parlées sont : le français, néerlandais, anglais, espagnol, chinois, arabe classique, marocain, berbère, tunisien, turque, roumain, yougoslave, pachto, peul, perse…Nous travaillons également en étroite collaboration avec le service d’interprétariat social notamment dans la prise en charge des patients du pole « Santé et Exil ».</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2014</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4></h4>
+                                <h4 class="subheading">Atelier</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Tout au long de l’année, l’ASBL organise en partenariat avec des professionnels de la santé, des ateliers de sensibilisation. Ceux-ci permettent aux participant d’apprendre plus concrètement et de manière plus interactive autour des sujets qui sont proposés.
+                                La liste des ateliers avec les dates et horaires est disponible au plus tard à la mi-septembre. Les cours commencent début octobre.
+                                Les sujets abordés sont toujours en lien avec la santé et la famille.
+                                Ex : l’alimentation, la sexualité, l’estime de soi, la communication non violente, le secourisme etc.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -265,43 +268,85 @@
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Notre équipe</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/1.jpg')}}" alt="" />
-                            <h4>Kay Garland</h4>
-                            <p class="text-muted">Lead Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <h4>Joelline Ogunade</h4>
+                            <p class="text-muted">Psycholoque clinicienne</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/2.jpg')}}" alt="" />
-                            <h4>Larry Parker</h4>
-                            <p class="text-muted">Lead Marketer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <h4>Virginie Leblicq</h4>
+                            <p class="text-muted">Psychologue clinicienne, psychothérapeute de couple et de famille</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/3.jpg')}}" alt="" />
-                            <h4>Diana Petersen</h4>
-                            <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <h4>Jessica Iskandar</h4>
+                            <p class="text-muted">Psychologue clinicienne</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/Cecilia-Fusco-col.jpg')}}" alt="" />
+                            <h4>Cecilia Fusco</h4>
+                            <p class="text-muted">Psychologue</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/majidat.jpg')}}" alt="" />
+                            <h4>Majidat Bounouh</h4>
+                            <p class="text-muted">Sexologue clinicienne,infirmière pédiatrique,cupping</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/manon-ver.jpg')}}" alt="" />
+                            <h4>Manon Verloot</h4>
+                            <p class="text-muted">Psychopédagogue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/nicolas-sam.jpg')}}" alt="" />
+                            <h4>Nicolas Sambucini</h4>
+                            <p class="text-muted">Educateur</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/xu-wei.jpg')}}" alt="" />
+                            <h4>Weiquin Xu</h4>
+                            <p class="text-muted">klinische psycholoog</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/yves-hau.jpg')}}" alt="" />
+                            <h4>Haubourdain Yves</h4>
+                            <p class="text-muted">Psychothérapie adulte, adolescent</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/zahia.jpg')}}" alt="" />
+                            <h4>Zahia Ticherafi</h4>
+                            <p class="text-muted">Médiatrice Familiale et interculturelle</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -334,25 +379,25 @@
                         <p> Les champs obligatoires sont notés par un *
                     </h3>
                 </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                {!! Form::open(['url' => 'contact']) !!}
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Nom*" required="required" data-validation-required-message="Entrez votre nom." />
+                                <input class="form-control" name ="nom" id="name" type="text" placeholder="Nom*" required="required" data-validation-required-message="Entrez votre nom." />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Prénom*" required="required" data-validation-required-message="Entrez votre prénom." />
+                                <input class="form-control" name="prenom" id="prenom" type="text" placeholder="Prénom*" required="required" data-validation-required-message="Entrez votre prénom." />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group mb-md-0">
-                                <input class="form-control" id="phone" type="tel" placeholder="Adresse Mail*" required="required" data-validation-required-message="Entrez votre mail." />
+                                <input class="form-control" name="email"id="email" type="email" placeholder="Adresse Mail*" required="required" data-validation-required-message="Entrez votre mail." />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
-                                <textarea class="form-control" id="message" placeholder="Message*" required="required" data-validation-required-message="Entrez votre message."></textarea>
+                                <textarea class="form-control" type="text" name="texte" rows="5" cols="33" id="message" placeholder="Message*" required="required" data-validation-required-message="Entrez votre message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -361,7 +406,7 @@
                         <div id="success"></div>
                         <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Envoyer !</button>
                     </div>
-                </form>
+                {{ Form::close()  }}
             </div>
         </section>
         <!-- Footer-->
@@ -376,7 +421,7 @@
                     </div>
                     <div class="col-lg-4 text-lg-right">
                         <a class="mr-3" href="#!">Politique de confidantialitée</a>
-                        <a href="#!">Condition d&aposutilisation/a>
+                        <a href="#!">Condition d&apos;utilisation</a>
                     </div>
                 </div>
             </div>

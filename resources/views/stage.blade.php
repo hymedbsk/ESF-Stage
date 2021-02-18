@@ -17,9 +17,11 @@
                         <div class="card-header"style=" text-align:center">
                                 <p> <img src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}"
                                         alt="logo che2"></p>
+                                <p>Seul les fichier PDF sont acceptés. </p>
+                                <p>Veillez à ce que les fichiers porte un nom différents.</p>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('stage') }}">
+                            {!! Form::open(['route' => 'stage.send', 'enctype' => 'multipart/form-data']) !!}
                                 <div class="form-group row">
                                     <label for="nom" class="col-md-3 col-form-label text-md-right">Nom</label>
 
@@ -40,7 +42,7 @@
                                     <div class="col-md-8">
                                         <input id="prenom" type="text"
                                             class="form-control @error('prenom') is-invalid @enderror" name="prenom"
-                                            value="{{ old('prenom') }}" required autocomplete="nom" placeholder="John"
+                                            value="{{ old('prenom') }}" required autocomplete="prenom" placeholder="John"
                                             autofocus>
                                         @error('prenom')
                                             <span class="invalid-feedback" role="alert">
@@ -53,9 +55,9 @@
                                     <label for="poste" class="col-md-3 col-form-label text-md-right">Poste</label>
                                     <div class="col-md-8">
                                         <select name='poste' class=" form-control ">
-                                            <option value="AS">Assistant(e) social</option>
-                                            <option value="SE">Secrétaire</option>
-                                            <option value="IT">Informatique</option>
+                                            <option value="Assistant(e) social">Assistant(e) social</option>
+                                            <option value="Secrétaire">Secrétaire</option>
+                                            <option value="Informatique">Informatique</option>
                                         </select>
                                     </div>
                                 </div>
@@ -84,33 +86,19 @@
                                 <div class="form-group row">
                                     <label for="cv" class="col-md-3 col-form-label text-md-right">Lettre de motivation</label>
                                     <div class="col-md-8">
-                                        {!! Form::file('cv', ['class' => 'form-control-file border-primary btn  btn-danger'] ) !!}
-                                        {!! $errors->first('cv', '<small class="help-block">:message</small>') !!}
+                                        {!! Form::file('lm', ['class' => 'form-control-file border-primary btn  btn-danger'] ) !!}
+                                        {!! $errors->first('lm', '<small class="help-block">:message</small>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="cv" class="col-md-3 col-form-label text-md-right">Attestation de fréquentation scolaire</label>
                                     <div class="col-md-8">
-                                        {!! Form::file('cv', ['class' => 'form-control-file border-primary btn  btn-success'] ) !!}
-                                        {!! $errors->first('cv', '<small class="help-block">:message</small>') !!}
+                                        {!! Form::file('afs', ['class' => 'form-control-file border-primary btn  btn-success'] ) !!}
+                                        {!! $errors->first('afs', '<small class="help-block">:message</small>') !!}
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="g-recaptcha"
-                                            data-sitekey="{{ env('CAPTCHA_KEY') }}">
-                                            �
-                                        </div>
-                                        @if($errors->has('g-recaptcha-response'))
-                                            <span class="invalid-feedback" styles="display:block">
-                                                <strong>
-                                                    {{ $errors->first('g-recaptcha-response') }}
-                                                </strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
+
                                 <br/>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-12 offset-md-5">
@@ -119,7 +107,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            {{ Form::close()}}
                         </div>
                     </div>
                 </div>

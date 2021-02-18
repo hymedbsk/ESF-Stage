@@ -22,3 +22,5 @@ Route::view('/accueil','accueil');
 Route::view('/stage', 'stage')->name('stage');
 Route::post('/stage', 'App\Http\Controllers\StageController@postForm')->name('stage.send');
 Route::post('/contact', 'App\Http\Controllers\ContactController@postForm')->name('contact');
+Route::post('/sendemail', 'App\Http\Controllers\SendEmailController@send')->name('sendemail');
+Route::view('testmail', 'testmail');
