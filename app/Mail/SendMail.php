@@ -31,7 +31,7 @@ class SendMail extends Mailable
     public function build()
     {
         Log::info("This is mail model");
-        return $this->from('testmailesf@gmail.com')->subject('Nouvel demande de stage')->view('email_stage')->with('data', $this->data)
+        return $this->from('testmailesf@gmail.com')->subject('Nouvelle demande de stage')->view('email_stage')->with('data', $this->data)
         ->attach($this->data['cv']->getRealPath(),
         [
             'as' =>$this->data['cv']->getClientOriginalName(),
