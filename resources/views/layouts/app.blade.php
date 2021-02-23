@@ -20,7 +20,7 @@
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-green fixed-top" id="mainNav">
-            <div class="container">
+            <div class="container help">
                 <a class="navbar-brand js-scroll-trigger" href="{{ url('/#page-top') }}"><img src="{{asset('assets/img/Logo-ESF-RVB-1-5.png')}}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -33,6 +33,9 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#about') }}">à propos de nous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Devenir membre</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Réseaux sociaux</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
                     </ul>
                 </div>
