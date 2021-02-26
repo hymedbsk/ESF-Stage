@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Devenir membre</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Réseaux sociaux</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
                     </ul>

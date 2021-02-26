@@ -24,3 +24,10 @@ Route::post('/stage', 'App\Http\Controllers\StageController@postForm')->name('st
 Route::post('/contact', 'App\Http\Controllers\ContactController@postForm')->name('contact');
 Route::post('/sendemail', 'App\Http\Controllers\SendEmailController@send')->name('sendemail');
 Route::view('testmail', 'testmail');
+Route::get('lang/home', 'App\Http\Controllers\LangController@index');
+Route::get('lang/change', 'App\Http\Controllers\LangController@change')->name('changeLang');
+Route::view('atelier','atelier')->name('atelier');
+Route::view('membre','membre.membre');
+Route::get('membre/professionnel', 'App\Http\Controllers\MembreController@professionnelGet');
+Route::get('membre/particulier', 'App\Http\Controllers\MembreController@membreGet');
+
