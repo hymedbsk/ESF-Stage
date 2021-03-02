@@ -31,3 +31,7 @@ Route::view('membre','membre.membre');
 Route::get('membre/professionnel', 'App\Http\Controllers\MembreController@professionnelGet');
 Route::get('membre/particulier', 'App\Http\Controllers\MembreController@membreGet');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
