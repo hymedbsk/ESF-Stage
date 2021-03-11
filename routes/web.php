@@ -30,8 +30,14 @@ Route::view('atelier','atelier')->name('atelier');
 Route::view('membre','membre.membre');
 Route::get('membre/professionnel', 'App\Http\Controllers\MembreController@professionnelGet');
 Route::get('membre/particulier', 'App\Http\Controllers\MembreController@membreGet');
-
+Route::get('logout', 'App\Http\Controllers\Auth\LoginController@logout', function () {
+    return abort(404);
+});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/list', "App\Http\Controllers\UserController@index")->name('user.list');
+Route::get('/user/{id}/edit',"App\Http\Controllers\UserController@show")->name('user.edit');
+Route::put('/user/{id}/edit', "App\Http\Controllers\UserController@update")->name('user.update');
+Route::post('/user/{id}/password', 'App\Http\Controllers\UserController@password')->name('change.password');
