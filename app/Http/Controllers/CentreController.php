@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Facture;
 use App\Models\Centre;
 
-class FactureController extends Controller
+class CentreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class FactureController extends Controller
      */
     public function index()
     {
-        $factures = Facture::get();
-        return view('facture.list', compact('factures'));
+        $centres = Centre::get();
+        return view('centre.list', compact('centres'));
     }
 
     /**
@@ -24,25 +23,12 @@ class FactureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $facture = new Facture;
-        $facture->num = $request->input('num');
-        $facture->centre_id = $request->input('centre');
-        $facture->p_nom = $request->input('nom');
-        $facture->p_prenom = $request->input('prenom');
-        $facture->p_ddn = $request->input('ddn');
-        $facture->p_dossier = $request->input('dossier');
-        $facture->save();
 
-        return redirect('facture');
+        return view('centre.add');
     }
 
-    public function add()
-    {
-        $centres = Centre::get();
-        return view('facture.add',compact('centres'));
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +37,16 @@ class FactureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $centre = new Centre;
+        $centre->nom = $request->input('nom');
+        $centre->rue = $request->input('rue');
+        $centre->numero = $request->input('numero');
+        $centre->cdp = $request->input('cdp');
+        $centre->ville = $request->input('ville');
+        $centre->tel = $request->input('tel');
+        $centre->save();
+
+        return redirect('centre');
     }
 
     /**
@@ -62,9 +57,7 @@ class FactureController extends Controller
      */
     public function show($id)
     {
-        $facture = Facture::FindOrFail($id);
-
-        return view('facture.edit',compact('facture'));
+        //
     }
 
     /**
@@ -98,6 +91,9 @@ class FactureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $centre = Centre::findOrFail($id);
+        $centre->delete();
+
+        return redirect('centre');
     }
 }

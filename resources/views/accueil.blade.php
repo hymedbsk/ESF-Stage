@@ -14,7 +14,6 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
@@ -30,15 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Accueil</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace Santé Famille</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item js-scroll-trigger" href="#portfolio">Espace Santé Famille</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#portfolio') }}">Espace Santé Famille</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#about') }}">à propos de nous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
@@ -56,7 +47,6 @@
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -65,9 +55,7 @@
                   <div class="carousel-item">
                     <img class="d-block w-100" src="{{asset('assets/img/arab.jpg')}}"alt="Second slide">
                   </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('assets/img/baby-84552_1920.jpg')}}" alt="Third slide">
-                  </div>
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -78,7 +66,6 @@
                   <span class="sr-only">Next</span>
                 </a>
             </div>
-
 
         </header>
         <!-- Services-->
@@ -659,14 +646,6 @@
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"> </script>
-        <script> $('.dropdown').on('show.bs.dropdown', function() {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-          });
-        
-          // Add slideUp animation to Bootstrap dropdown when collapsing.
-          $('.dropdown').on('hide.bs.dropdown', function() {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-          });</script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
