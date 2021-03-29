@@ -15,8 +15,8 @@ class CreatePsiesTable extends Migration
     {
         Schema::create('psy', function (Blueprint $table) {
             $table->id("psy_id");
-            $table->string("nom",200);
-            $table->string("prenom",200);
+            $table->string("nom");
+            $table->string("prenom");
             $table->timestamp("date_cree");
             $table->timestamp("date_edit")->nullable();
             $table->timestamp("date_supp")->nullable();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrestationsTable extends Migration
+class CreateCentresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreatePrestationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prestations', function (Blueprint $table) {
-            $table->id("prest_id");
-            $table->unsignedBigInteger('fact_id');
-            $table->foreign('fact_id')->references('fact_id')->on('factures');
-            $table->integer("qte");
-            $table->text("psy");
-            $table->float("montant");
+        Schema::create('centres', function (Blueprint $table) {
+            $table->id('centre_id');
+            $table->string('nom');
+            $table->string('adresse');
+            $table->string('numero');
+            $table->string('cdp');
+            $table->string('ville');
+            $table->string('tel');
             $table->timestamp("date_cree");
             $table->timestamp("date_edit")->nullable();
             $table->timestamp("date_supp")->nullable();
             $table->engine = 'InnoDB';
+
         });
     }
 
@@ -34,6 +36,6 @@ class CreatePrestationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestations');
+        Schema::dropIfExists('centres');
     }
 }

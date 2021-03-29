@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prestation extends Model
+class Centre extends Model
 {
     use HasFactory;
-    protected $table = 'prestations';
-    protected $primaryKey = 'prest_id';
-    protected $fillable = ['fact_id','interprete','requi','frais'];
+    protected $table = 'centres';
+    protected $primaryKey = 'centre_id';
+    protected $fillable = ['nom','rue','numero','cdp','ville','tel'];
     const CREATED_AT = "date_cree";
     const UPDATED_AT= 'date_edit';
     const DELETED_AT='date_supp';
 
     public function factures(){
-		return $this->belongsTo('App\Models\Facture','fact_id');
+        return $this->hasMany('App\Models\Facture');
     }
-
 }
