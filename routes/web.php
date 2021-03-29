@@ -40,4 +40,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/user/list', "App\Http\Controllers\UserController@index")->name('user.list');
 Route::get('/user/{id}/edit',"App\Http\Controllers\UserController@show")->name('user.edit');
 Route::put('/user/{id}/edit', "App\Http\Controllers\UserController@update")->name('user.update');
-Route::post('/user/{id}/password', 'App\Http\Controllers\UserController@password')->name('change.password');
+
+Route::get('facture','App\Http\Controllers\FactureController@index')->name('facture');
+Route::get('facture/add','App\Http\Controllers\FactureController@add');
+Route::post('facture/add','App\Http\Controllers\FactureController@create')->name('facture.add');
+Route::get('facture/{id}/edit', 'App\Http\Controllers\FactureController@show')->name('facture.show');
+Route::put('facture/{id}/edit','App\Http\Controllers\FactureController@edit')->name('facture.edit');
+
+Route::get('facture/{id}/prestation','App\Http\Controllers\PrestationController@index');
+Route::post('facture/{id}/prestation','App\Http\Controllers\PrestationController@create')->name('prestation.add');
+Route::get('facture/{id}/pdf', 'App\Http\Controllers\PrestationController@createPDF');
+Route::delete('facture/{id}/delete/p','App\Http\Controllers\PrestationController@destroy')->name('prestation.delete');
+Route::delete('facture/{id}/delete','App\Http\Controllers\FactureController@destroy')->name('facture.delete');
+
+Route::get('centre', 'App\Http\Controllers\CentreController@index')->name('centre.list');
+Route::post('centre', 'App\Http\Controllers\CentreController@store')->name('centre.store');
+Route::delete('centre/{id}/delete', 'App\Http\Controllers\CentreController@destroy')->name('centre.delete');
+
+Route::view('pdf','pdf');
