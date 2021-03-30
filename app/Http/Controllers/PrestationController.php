@@ -51,7 +51,8 @@ class PrestationController extends Controller
             $this->tot += $prestation->frais;
 
         }
-        $date = Carbon::now()->format('d-m-yy');
+        $date = Carbon::now()->format('d-m-y');
+       
         $pdf = PDF::loadView('pdf',compact('prestations','facture','centre','date'),['tot'=>$this->tot]);
 
         return $pdf->download('facture.pdf');
