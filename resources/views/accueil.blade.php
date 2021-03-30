@@ -53,7 +53,7 @@
                     <img class="d-block w-100" src="{{asset('assets/img/baby-84552_1920.jpg')}}" alt="First slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('assets/img/arab.jpg')}}"alt="Second slide">
+                    <img class="d-block w-100" src="{{public_path('virement.png')}}"alt="Second slide">
                   </div>
 
                 </div>
