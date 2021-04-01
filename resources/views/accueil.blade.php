@@ -30,12 +30,13 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#portfolio') }}">Espace Santé Famille</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#social') }}">Réseaux sociaux</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#about') }}">à propos de nous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Réseaux sociaux</a></li>
+                        
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
                     </ul>
                 </div>
@@ -47,18 +48,15 @@
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img class="d-block w-100" src="{{asset('assets/img/baby-84552_1920.jpg')}}" alt="First slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('assets/img/arab.jpg')}}"alt="Second slide">
+                    <img class="d-block w-100" src="{{public_path('virement.png')}}"alt="Second slide">
                   </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('assets/img/baby-84552_1920.jpg')}}" alt="Third slide">
-                  </div>
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -69,7 +67,6 @@
                   <span class="sr-only">Next</span>
                 </a>
             </div>
-
 
         </header>
         <!-- Services-->
@@ -200,6 +197,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="page-section" id="social">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Réseaux Sociaux</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEspacesantefamille&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </div>  
             </div>
         </section>
         <!-- About-->
