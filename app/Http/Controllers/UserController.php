@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+Use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,7 +26,52 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view("user.add");   
+    }
+
+    public function editPassword($id){
+
+        $user = User::findOrFail($id);
+
+        return view("user.password",compact("user"));
+
+    }
+
+    public function storePassword(Request $request, $id){
+
+        $request->validate([
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+
+        User::find($id)->update(['password'=> Hash::make($request->new_password)]);
+        return redirect('user/'.$id.'/edit');
+
+    }
+
+    public function role(){
+
+        $users = User::all();
+        return view("user.role",compact('users'));
+
+    }
+
+    public function changeRole($user){
+
+        $userToValid = User::findOrFail($user);
+
+        if($userToValid->secretaire == 0){
+
+            User::where('id','=', $userToValid->id)->update(['secretaire'=> 1]);
+            return redirect('user/role');
+
+        }
+        else if($userToValid->secretaire == 1){
+
+            User::where('id','=', $userToValid->id)->update(['secretaire'=> 0]);
+            return redirect('user/role');        
+
+        }
     }
 
     /**
@@ -33,9 +80,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        User::create([
+            'nom' => $request['name'],
+            'prenom' =>$request['prenom'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        return redirect('user/list');
     }
 
     /**
@@ -88,6 +142,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect('user/list');
     }
 }
