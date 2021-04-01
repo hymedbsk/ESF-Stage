@@ -15,12 +15,15 @@ class CreatePrestationsTable extends Migration
     {
         Schema::create('prestations', function (Blueprint $table) {
             $table->id("prest_id");
-            $table->int("qte");
-            $table->text("design");
-            $table->int("montant");
+            $table->unsignedBigInteger('fact_id');
+            $table->foreign('fact_id')->references('fact_id')->on('factures');
+            $table->string("interprete");
+            $table->integer("requi");
+            $table->float("frais");
             $table->timestamp("date_cree");
             $table->timestamp("date_edit")->nullable();
             $table->timestamp("date_supp")->nullable();
+            $table->engine = 'InnoDB';
         });
     }
 
