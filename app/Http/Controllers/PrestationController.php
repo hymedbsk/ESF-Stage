@@ -26,18 +26,12 @@ class PrestationController extends Controller
         return view('prestation.list',compact('prestations','facture'));
     }
 
-    public function pdf($id){
+    public function pdf(){
 
-        $facture =  Facture::FindOrFail($id);
-        $prestations = Prestation::all()->where('fact_id','=',$id);
-        $centre = Centre::FindOrFail($facture->centre_id);
-
-        foreach($prestations as $prestation){
-
-            $this->tot += $prestation->frais;
-
-        }
-        return view('pdf');
+        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+        $pdf = PDF::loadView('list', $data);
+  
+        return $pdf->download('itsolutionstuff.pdf');
     }
 
     public function createPDF($id) {
@@ -117,9 +111,13 @@ class PrestationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $prestation = Prestation::findOrFail($id);
+        $fact_id = $prestation->fact_id;
+        $prestation->delete();
+
+        return redirect('facture/'.$fact_id.'/prestation');
     }
 
     /**
@@ -128,12 +126,21 @@ class PrestationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
+ 
+
     public function destroy($id)
     {
-        $prestation = Prestation::findOrFail($id);
-        $fact_id = $prestation->fact_id;
-        $prestation->delete();
 
-        return redirect('facture/'.$fact_id.'/prestation');
+        $prestations = Prestation::all()->where('fact_id','=',$id);
+
+        foreach($prestations as $prestation){
+
+            $prestation->delete();
+        }
+        
+
+        return redirect('facture/'.$id.'/prestation');
     }
+
 }

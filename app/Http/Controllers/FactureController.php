@@ -114,4 +114,6 @@ class FactureController extends Controller
 
         return redirect('facture');
     }
+
+   
 }
