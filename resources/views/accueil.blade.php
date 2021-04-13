@@ -17,6 +17,14 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
+    <script async
+	src="//book.timify.com/widget/widget.min.js"
+	id="timify-widget"
+	data-position="left"
+	data-locale="fr-be"
+	data-account-id="5ea1627d759dde6c545d94a8"
+	data-locale="en-gb"
+></script>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-green fixed-top" id="mainNav">
@@ -33,11 +41,27 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#social') }}">Réseaux sociaux</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#about') }}">à propos de nous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
-                        
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
+                        @guest
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://book.timify.com/?accountId=5ea1627d759dde6c545d94a8&hideCloseButton=true"target="_blank">Prendre Rendez-vous</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
+                        @endguest
+                        @if(Auth::user())
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #CD9A64; border: none;">
+                                {{ Auth::user()->nom }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li class="nav-item"><a class="dropdown-item" method="POST" href="{{ url('logout') }}"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Déconnexion</a></li>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                 style="display: none;">
+                                 @csrf
+                               </form>
+                            </div>
+                        </div>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -207,9 +231,14 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEspacesantefamille&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEspacesantefamille&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="400" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
-                </div>  
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <iframe src="http://www.instagram.com/p/B-gpxgtgAc9/embed" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- About-->
@@ -266,11 +295,7 @@
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
+
                             </h4>
                         </div>
                     </li>
@@ -307,43 +332,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/Cecilia-Fusco-col.jpg')}}" alt="" />
-                            <h4>Cecilia Fusco</h4>
-                            <p class="text-muted">Psychologue</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/majidat.jpg')}}" alt="" />
-                            <h4>Majidat Bounouh</h4>
-                            <p class="text-muted">Sexologue clinicienne,infirmière pédiatrique,cupping</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/manon-ver.jpg')}}" alt="" />
-                            <h4>Manon Verloot</h4>
-                            <p class="text-muted">Psychopédagogue</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/nicolas-sam.jpg')}}" alt="" />
-                            <h4>Nicolas Sambucini</h4>
-                            <p class="text-muted">Educateur</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/xu-wei.jpg')}}" alt="" />
-                            <h4>Weiquin Xu</h4>
-                            <p class="text-muted">klinische psycholoog</p>
-                        </div>
-                    </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="{{asset('assets/img/team/yves-hau.jpg')}}" alt="" />
@@ -459,40 +447,7 @@
 
                                     <p>Si nos psychologues ne parlent pas une langue étrangère donnée, l’asbl travaille avec un service d’interprétariat social qui s’engage au respect du secret professionnel.</p>
 
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                        <i class="fas fa-times mr-1"></i>
-                                        Prendre Rendez-vous
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
-                                    <p> this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>Date: January 2020</li>
-                                        <li>Client: Explore</li>
-                                        <li>Category: Graphic Design</li>
-                                    </ul>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                        <i class="fas fa-times mr-1"></i>
-                                        Close Project
-                                    </button>
+                                    <a class="btn btn-danger" href="https://book.timify.com/?accountId=5ea1627d759dde6c545d94a8&hideCloseButton=true"target="_blank">Prendre Rendez-vous</a>
                                 </div>
                             </div>
                         </div>
@@ -629,28 +584,6 @@
                 </div>
             </div>
         </div>
-        <div id="newHelpbox" style="display: none;">
-            <div id="newHelpbox-btn" data-tc-clic="needHelp-Button">
-                <p class="newHelpbox-btn-text">Besoin d&apos;aide ?</p>
-                <span id="newHelpbox-close">
-                </span>
-            </div>
-                <div id="newHelpbox-container">
-                    <div class="help-box-section">
-                        <a href="https://www.ovh.com/fr/support/" id="newHelpbox-support" class="icn-lifebay help-box-section-btn" data-tc-clic="helpCenter-Button" target="_blank">Centre d&apos;aide</a>
-                    </div>
-                    <div class="help-box-section">
-                        <div id="newHelpbox-startchat" class="icn-message help-box-section-btn" data-tc-clic="chat-Button">
-                            Assistant virtuel
-                        </div>
-                    </div>
-                </div>
-                <div id="newHelpbox-overflow">
-                    </div>
-                </div>
-                <link rel="stylesheet" type="text/css" href="https://www.ovh.com/fr/components/helpbox/css/helpbox.css"><script language="javascript" type="text/javascript" src="https://www.ovh.com/fr/js/jquery-ui-min.js">
-                </script>
-                <script language="javascript" type="text/javascript" src="https://www.ovh.com/fr/components/helpbox/js/helpbox.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
