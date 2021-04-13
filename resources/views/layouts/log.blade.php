@@ -38,16 +38,18 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
-
                         @if(Auth::user())
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #CD9A64; border: none;">
                                 {{ Auth::user()->nom }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Profil</a>
-                                <a class="dropdown-item" method="POST" href="{{ route('logout') }}"onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Déconnexion</a>
+                                <li class="nav-item"><a class="dropdown-item" method="POST" href="{{ url('logout') }}"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Déconnexion</a></li>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                 style="display: none;">
+                                 @csrf
+                               </form>
                             </div>
                         </div>
                         @endif

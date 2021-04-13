@@ -10,9 +10,6 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -20,6 +17,14 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
+    <script async
+	src="//book.timify.com/widget/widget.min.js"
+	id="timify-widget"
+	data-position="left"
+	data-locale="fr-be"
+	data-account-id="5ea1627d759dde6c545d94a8"
+	data-locale="en-gb"
+></script>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-green fixed-top" id="mainNav">
@@ -33,18 +38,35 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#portfolio') }}">Espace Santé Famille</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#social') }}">Réseaux sociaux</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#about') }}">à propos de nous</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#team') }}">l&apos;équipe</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Prendre Rendez-vous</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Réseaux sociaux</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
+                        @guest
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/stage') }}">Stage</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://book.timify.com/?accountId=5ea1627d759dde6c545d94a8&hideCloseButton=true"target="_blank">Prendre Rendez-vous</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/membre') }}">Devenir membre</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/#contact') }}">Contact</a></li>
+                        @endguest
+                        @if(Auth::user())
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #CD9A64; border: none;">
+                                {{ Auth::user()->nom }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li class="nav-item"><a class="dropdown-item" method="POST" href="{{ url('logout') }}"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Déconnexion</a></li>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                 style="display: none;">
+                                 @csrf
+                               </form>
+                            </div>
+                        </div>
+                        @endif
                     </ul>
                 </div>
             </div>
         </nav>
-        @yield('content')
+            @yield('content')
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
@@ -61,6 +83,7 @@
                 </div>
             </div>
         </footer>
+        <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
