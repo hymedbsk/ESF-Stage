@@ -1,59 +1,84 @@
 @extends('layouts.log')
-
 @section('content')
-<header class="masthead">
-    <br /><br /><br /><br /><br /><br />
+<script>
+    tinymce.init({
+      selector: '#mytextarea',
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+        ],
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+    menu: {
+        favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
+      },
+      menubar: 'favs file edit view insert format tools table help',
 
+    });
+  </script>
+<header class="masthead">
+    <br /><br /><br /><br /><br />
 </header>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Ajouter un article</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <input id="titre" type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ old('titre') }}" required autocomplete="titre" placeholder="Titre" autofocus>
-
-                                @error('titre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <input id="sousTitre" type="text" class="form-control @error('sousTitre') is-invalid @enderror" name="sousTitre" value="{{ old('sousTitre') }}" required autocomplete="sousTitre" placeholder="Sous-Titre" autofocus>
-                                @error('sousTitre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <input id="contenu" type="textarea" class="form-control @error('contenu') is-invalid @enderror" name="contenu" value="{{ old('contenu') }}" required autocomplete="contenu" placeholder="Contenu">
-
-                                @error('contenu')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Créer
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="card-header" style=" text-align:center">
+                    <p>
+                        <img src="{{ asset('assets/img/Logo-ESF-RVB-1-5.png') }}" alt="logo ESF">
+                        <h3> Créer un article</h3>
+                    </p>
                 </div>
+                <div class="card-body">
+                    {!! Form::open(['route' => ['article.add'],'enctype'=>'multipart/form-data']) !!}
+                    @csrf
+                    <div class="form-group ">
+                        <div class="form-group  {!! $errors->has('qte') ? 'has-error' : '' !!}">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    {!! Form::text('titre', null, ['class' => 'form-control border-primary',
+                                            'placeholder' => 'Titre de l\'article', 'required']) !!}
+                                    {!! $errors->first('text', '<small class="help-block">:message</small>')
+                                            !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="form-group  {!! $errors->has('qte') ? 'has-error' : '' !!}">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    {!! Form::text('sousTitre', null, ['class' => 'form-control border-primary',
+                                            'placeholder' => 'Sous-Titre', 'required']) !!}
+                                    {!! $errors->first('text', '<small class="help-block">:message</small>')
+                                            !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="form-group  {!! $errors->has('qte') ? 'has-error' : '' !!}">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {!! Form::textarea('contenu', null, ['class' => 'form-control border-primary','id' => 'mytextarea',
+                                            'placeholder' =>  'Contenu']) !!}
+                                    {!! $errors->first('text', '<small class="help-block">:message</small>')
+                                            !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        {!! Form::submit('Créer l\'article', ['class' => 'btn btn-info pull-right']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+                <a href="javascript:history.back()" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-circle-arrow-left"> Retour</span>
+                </a>
             </div>
         </div>
     </div>

@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','accueil');
-Route::view('/accueil','accueil');
-Route::view('/stage', 'stage')->name('stage')->middleware('admin');
+Route::get('/','App\Http\Controllers\ViewController@accueil');
+Route::view('/stage', 'stage')->name('stage');
 Route::post('/stage', 'App\Http\Controllers\StageController@postForm')->name('stage.send');
 Route::post('/contact', 'App\Http\Controllers\ContactController@postForm')->name('contact');
 Route::post('/sendemail', 'App\Http\Controllers\SendEmailController@send')->name('sendemail');
@@ -31,7 +30,6 @@ Route::get('logout', 'App\Http\Controllers\Auth\LoginController@logout', functio
 });
 
 Auth::routes();
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user/list', "App\Http\Controllers\UserController@index")->name('user.list')->middleware('auth','admin');
@@ -56,19 +54,26 @@ Route::post('facture/{id}/prestation','App\Http\Controllers\PrestationController
 Route::get('facture/{id}/pdf', 'App\Http\Controllers\PrestationController@createPDF')->middleware('auth','secretaire');
 Route::delete('facture/{id}/delete/p','App\Http\Controllers\PrestationController@destroy')->name('prestation.delete')->middleware('auth','secretaire');
 Route::delete('facture/{id}/delete','App\Http\Controllers\FactureController@destroy')->name('facture.delete')->middleware('auth','secretaire');
-Route::delete('facture/{id}/delete/all','App\Http\Controllers\PrestationController@destroyAll')->name('prestation.delete')->middleware('auth','secretaire');
+Route::delete('facture/{id}/delete/all','App\Http\Controllers\PrestationController@destroyAll')->name('p')->middleware('auth','secretaire');
 
 Route::get('centre', 'App\Http\Controllers\CentreController@index')->name('centre.list')->middleware('auth','secretaire');
 Route::post('centre', 'App\Http\Controllers\CentreController@store')->name('centre.store')->middleware('auth','secretaire');
 Route::delete('centre/{id}/delete', 'App\Http\Controllers\CentreController@destroy')->name('centre.delete')->middleware('auth','secretaire');
 
-Route::get('article', 'App\Http\Controllers\ArticleController@index');
-Route::post('article', 'App\Http\Controllers\ArticleController@create')->name('article.create')->middleware('auth','secretaire');
-Route::get('article/{id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
-Route::get('article/list', 'App\Http\Controllers\ArticleController@index')->name('article.list')->middleware('auth','secretaire');
+Route::get('article', 'App\Http\Controllers\ArticleController@index')->name('article');
+Route::get('article/add','App\Http\Controllers\ArticleController@create')->name('article.add')->middleware('auth','secretaire');
+Route::post('article/add', 'App\Http\Controllers\ArticleController@store')->name('article.store')->middleware('auth','secretaire');
+Route::get('article-list','App\Http\Controllers\ArticleController@list')->name('article.list')->middleware('auth','secretaire');
+Route::get('article-show/{id}', 'App\Http\Controllers\ArticleController@show')->name('article.show')->middleware('auth','secretaire');
 Route::get('article/{id}/edit','App\Http\Controllers\ArticleController@edit')->name('article.edit')->middleware('auth','secretaire');
-Route::put('article/{id}/edit','App\Http\Controllers\ArticleController@store')->name('article.store')->middleware('auth','secretaire');
+Route::put('article/{id}/edit','App\Http\Controllers\ArticleController@update')->name('article.update')->middleware('auth','secretaire');
 Route::delete('article/{id}/delete','App\Http\Controllers\ArticleController@destroy')->name('article.delete')->middleware('auth','secretaire');
 
 Route::get('generate-pdf','App\Http\Controllers\PrestationController@pdf');
+
+Route::get('psy','App\Http\Controllers\PsyController@index')->middleware('auth','secretaire');
+Route::post('psy/add', 'App\Http\Controllers\PsyController@store')->name('psy.add')->middleware('auth','secretaire');
+Route::get('psy/{id}/edit','App\Http\Controllers\PsyController@edit')->name('psy.edit')->middleware('auth','secretaire');
+Route::put('psy/{id}/edit','App\Http\Controllers\PsyController@update')->name('psy.update')->middleware('auth','secretaire');
+Route::delete('psy/{id}/delete', 'App\Http\Controllers\PsyController@destroy')->name('psy.destroy')->middleware('auth','secretaire');
 
