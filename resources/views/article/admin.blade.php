@@ -36,7 +36,7 @@
                                     <tr>
                                         <td class="text-primary"><strong>{{ $article->titre }}</strong></td>
                                         <td class="text-primary"><strong></strong>{{ $article->sousTitre }} </td>
-                                        <td class="text-primary" maxlength="10"><strong></strong>{{ $article->contenu }}</td>
+                                        <td id="contenu" class="text-primary"><strong></strong>{{ $article->contenu }}</td>
                                         <td class="text-primary">{!! link_to_route('article.edit', 'Modifier', [$article->article_id], ['class' => 'btn btn-warning ']) !!}</td>
                                         <td> {{ Form::open(['action' => ['App\Http\Controllers\ArticleController@destroy', $article->article_id], 'method' => 'POST'])}}
                                             {{Form::hidden('_method', 'DELETE')}}

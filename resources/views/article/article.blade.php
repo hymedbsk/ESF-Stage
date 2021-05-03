@@ -21,14 +21,14 @@
                                 <th class="scope">Titre</th>
                                 <th class="scope">Sous-titre</th>
                                 <th class="scope"></th>
-                                
+
                                 <th class="scope">{!! link_to_route('article.add', 'Ajouter', null, ['class' => 'btn btn-success']) !!}</th>
                             </thead>
                             <tbody>
                                 @foreach($articles as $article)
                                     <tr>
                                         <td class="text-primary"><strong>{{ $article->article_id }}</strong></td>
-                                        <td class="text-primary"><strong></strong>{{ $article->titre }}</td>
+                                        <td class="text-primary" ><strong></strong>{{ $article->titre }}</td>
                                         <td class="text-primary"><strong></strong>{{ $article->sousTire }}</td>
                                         <td>{!! link_to_route('article.edit', 'Modifier', [$article->id], ['class' => 'btn btn-warning ']) !!}</td>
                                         <td>

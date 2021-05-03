@@ -29,7 +29,7 @@
                   <hr class="my-4" style="text-align:left">
                   <p class="lead" style="text-align:left">
                     <a class="btn btn-primary btn-lg" href={{url("article-show/".$article->article_id)}} role="button">En savoir plus</a>
-                    {!!$article->contenu!!}
+
                   </p>
                 </div>
             </div>
