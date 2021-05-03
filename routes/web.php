@@ -77,3 +77,12 @@ Route::get('psy/{id}/edit','App\Http\Controllers\PsyController@edit')->name('psy
 Route::put('psy/{id}/edit','App\Http\Controllers\PsyController@update')->name('psy.update')->middleware('auth','secretaire');
 Route::delete('psy/{id}/delete', 'App\Http\Controllers\PsyController@destroy')->name('psy.destroy')->middleware('auth','secretaire');
 
+Route::get('/album', array('as' => 'index','uses' => 'App\Http\Controllers\AlbumsController@getList'));
+Route::get('/createalbum','App\Http\Controllers\AlbumsController@getForm')->name('album.create');
+Route::post('/createalbum','App\Http\Controllers\AlbumsController@postCreate')->name('album.add');
+Route::get('/deletealbum/{id}','App\Http\Controllers\AlbumsController@getDelete');
+Route::get('/album/{id}', array('as' => 'show_album','uses' => 'App\Http\Controllers\AlbumsController@getAlbum'));
+
+Route::get('image-gallery', 'App\Http\Controllers\GalleryController@index');
+Route::post('image-gallery', 'App\Http\Controllers\GalleryController@upload');
+Route::delete('image-gallery/{id}', 'App\Http\Controllers\GalleryController@destroy');

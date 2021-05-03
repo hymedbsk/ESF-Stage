@@ -26,13 +26,7 @@ class PrestationController extends Controller
         return view('prestation.list',compact('prestations','facture'));
     }
 
-    public function pdf(){
 
-        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
-        $pdf = PDF::loadView('list', $data);
-  
-        return $pdf->download('itsolutionstuff.pdf');
-    }
 
     public function createPDF($id) {
 
@@ -46,7 +40,7 @@ class PrestationController extends Controller
 
         }
         $date = Carbon::now()->format('d-m-y');
-       
+
         $pdf = PDF::loadView('pdf',compact('prestations','facture','centre','date'),['tot'=>$this->tot]);
 
         return $pdf->download('facture.pdf');
@@ -126,8 +120,8 @@ class PrestationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
- 
+
+
 
     public function destroy($id)
     {
@@ -138,7 +132,7 @@ class PrestationController extends Controller
 
             $prestation->delete();
         }
-        
+
 
         return redirect('facture/'.$id.'/prestation');
     }
