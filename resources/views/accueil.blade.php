@@ -40,24 +40,34 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">{{ Lang::get('texte.axes.titre.Prévention')}}</h4>
-                        <p class="text-muted">{{ Lang::get('texte.axes.texte.Prévention')}}</p>
+                        <h4 class="my-3">Axe Prévention </h4>
+                        <p class="text-muted">
+                            L&apos;axe Prévention insiste particulièrement sur l&apos;accompagnement à la parentalité et propose des modules à thèmes: social, puériculture, diététique, éducation, psychologie.
+                            Ceux-ci sont animés par des professionnels de al santé agréés. Ce pôle propose également des ateliers (hippothérapie, massage bébé, développement personnel, etc.),
+                            des formations dispensées par des spécialistes pour les professionnels et les particuliers. Et enfin, un espace de médiation familial, essentiel dans la gestion des
+                            conflits.
+                        </p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-handshake fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">{{ Lang::get('texte.axes.titre.Rencontre')}}</h4>
-                        <p class="text-muted">{{ Lang::get('texte.axes.texte.Rencontre')}}</p>
+                        <h4 class="my-3">Axe Rencontre</h4>
+                        <p class="text-muted">L&apos;axe Rencontre travaille sur le lien affectif, social et relationnel. Il est admis aujourd&apos;hui, toute l&apos;incidence négative que la solitude, l&apos;attachement précaire, la marginalisation comporte en matière de santé mentale et pour la société. L&apos;ASBL
+                            organise des groupes d&apos;échange et de rencontre entre personnes seules. Elle met à disposition des familles en conflits, un espace de rencontre parent-enfant.
+                        </p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-link fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">{{ Lang::get('texte.axes.titre.Réseau')}}</h4>
-                        <p class="text-muted">{{ Lang::get('texte.axes.texte.Réseau')}}</p>
+                        <h4 class="my-3"> Axe Réseau </h4>
+                        <p class="text-muted">L&apos;ESF propose un travail de Réseau. l&apos;association se veut être un lieu de supervision, d&apos;échange, de réflexion entre professionnels de la santé.
+                            En effet, elle invite les praticiens à se rencontrer, réfléchir sur leurs pratiques avec les familles et met également à leur disposition des outils d&apos;évaluation, des formations, des locaux adaptés à la prise en
+                            charge des bénéficiaires. Tout est conçu pour optimaliser l&apos;accompagnement des familles et favoriser l&apos;adéquation des interventions aux besoins des parents et de leurs enfants.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -233,7 +243,6 @@
                             </h4>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </section>
