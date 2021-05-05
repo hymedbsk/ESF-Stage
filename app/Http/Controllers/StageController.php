@@ -26,7 +26,7 @@ class StageController extends Controller
 
         Log::info("data");
         Log::info($data);
-        Mail::to('testmailesf@gmail.com')->send(new SendMail($data));
+        Mail::to('hymedboussaklatan@gmail.com')->send(new SendMail($data));
         return view('confirm_stage');
     }
 }

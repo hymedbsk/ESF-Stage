@@ -22,9 +22,16 @@ Route::view('testmail', 'testmail');
 Route::get('lang/home', 'App\Http\Controllers\LangController@index');
 Route::get('lang/change', 'App\Http\Controllers\LangController@change')->name('changeLang');
 Route::view('atelier','atelier')->name('atelier');
+
 Route::view('membre','membre.membre');
+Route::post('/membre', 'App\Http\Controllers\MembreController@postForm')->name('membre.send');
+
 Route::get('membre/professionnel', 'App\Http\Controllers\MembreController@professionnelGet');
-Route::get('membre/particulier', 'App\Http\Controllers\MembreController@membreGet');
+Route::post('membre/professionnel', 'App\Http\Controllers\MembreController@professionnelPost')->name('professionnel.send');
+
+Route::get('membre/particulier', 'App\Http\Controllers\MembreController@particulierGet');
+Route::post('membre/particulier', 'App\Http\Controllers\MembreController@particulierPost')->name('particulier.send');
+
 Route::get('logout', 'App\Http\Controllers\Auth\LoginController@logout', function () {
     return abort(404);
 });
@@ -61,10 +68,10 @@ Route::post('centre', 'App\Http\Controllers\CentreController@store')->name('cent
 Route::delete('centre/{id}/delete', 'App\Http\Controllers\CentreController@destroy')->name('centre.delete')->middleware('auth','secretaire');
 
 Route::get('article', 'App\Http\Controllers\ArticleController@index')->name('article');
+Route::get('article-show/{id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
 Route::get('article/add','App\Http\Controllers\ArticleController@create')->name('article.add')->middleware('auth','secretaire');
 Route::post('article/add', 'App\Http\Controllers\ArticleController@store')->name('article.store')->middleware('auth','secretaire');
 Route::get('article-list','App\Http\Controllers\ArticleController@list')->name('article.list')->middleware('auth','secretaire');
-Route::get('article-show/{id}', 'App\Http\Controllers\ArticleController@show')->name('article.show')->middleware('auth','secretaire');
 Route::get('article/{id}/edit','App\Http\Controllers\ArticleController@edit')->name('article.edit')->middleware('auth','secretaire');
 Route::put('article/{id}/edit','App\Http\Controllers\ArticleController@update')->name('article.update')->middleware('auth','secretaire');
 Route::delete('article/{id}/delete','App\Http\Controllers\ArticleController@destroy')->name('article.delete')->middleware('auth','secretaire');
